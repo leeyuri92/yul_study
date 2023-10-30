@@ -32,7 +32,7 @@ public class LeeClient extends JFrame implements ActionListener{
 	JTextField jtf_msg = new JTextField(20);
 	JButton jbtn_send = new JButton("전송");	
 	//JButton jbtn_exit = new JButton("나가기");
-	TextArea jta_display = null;
+	JTextArea jta_display = null;
 	JScrollPane jsp = null;
 	
 	
@@ -52,9 +52,9 @@ public class LeeClient extends JFrame implements ActionListener{
 		jp_south.add("Center",jtf_msg);
 		jp_south.add("East",jbtn_send);
 		
-		jta_display = new TextArea();
-		//jta_display.setLineWrap(true);
-		//jta_display.setOpaque(false);
+		jta_display = new JTextArea();
+		jta_display.setLineWrap(true);
+		jta_display.setOpaque(false);
 		Font font = new Font("굴림체",Font.BOLD,16);
 		jta_display.setFont(font);
 		jsp = new JScrollPane(jta_display);
