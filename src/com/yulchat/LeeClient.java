@@ -32,7 +32,7 @@ public class LeeClient extends JFrame implements ActionListener{
 	JTextField jtf_msg = new JTextField(20);
 	JButton jbtn_send = new JButton("전송");	
 	//JButton jbtn_exit = new JButton("나가기");
-	TextArea jta_display = null;
+	JTextArea jta_display = null;
 	JScrollPane jsp = null;
 	
 	
@@ -52,9 +52,9 @@ public class LeeClient extends JFrame implements ActionListener{
 		jp_south.add("Center",jtf_msg);
 		jp_south.add("East",jbtn_send);
 		
-		jta_display = new TextArea();
-		//jta_display.setLineWrap(true);
-		//jta_display.setOpaque(false);
+		jta_display = new JTextArea();
+		jta_display.setLineWrap(true);
+		jta_display.setOpaque(false);
 		Font font = new Font("굴림체",Font.BOLD,16);
 		jta_display.setFont(font);
 		jsp = new JScrollPane(jta_display);
@@ -71,9 +71,14 @@ public class LeeClient extends JFrame implements ActionListener{
 	
 	public void init() {
 		try {
-			
-			
+			socket = new Socket("127.0.0.1",1004);
+			oos = new ObjectOutputStream(socket.getOutputStream());
+			ois = new ObjectInputStream(socket.getInputStream());
+			oos.writeObject(100 + "," + nickname);
+			LeeClientThread lct = new LeeClientThread(this);
+			lct.start();			
 		} catch (Exception e) {
+			System.out.println(e.toString());
 		}
 		
 	}
@@ -82,7 +87,7 @@ public class LeeClient extends JFrame implements ActionListener{
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		LeeClient lc = new LeeClient();
 		lc.initDisplay();
-
+		lc.init();
 	}
 
 	@Override
@@ -90,10 +95,20 @@ public class LeeClient extends JFrame implements ActionListener{
 		Object obj = ae.getSource();
 		String msg = jtf_msg.getText();
 		
-		if(obj == jbtn_send) {
+		if(obj == jtf_msg) {
 			try {
-				jtf_msg.setText(msg);
+				oos.writeObject(200 + "," + nickname + "," + msg);
+				jtf_msg.setText("");
 			} catch (Exception e) {
+				System.out.println(e.toString());
+			}			
+		}else if (obj == jbtn_send) {
+			try {
+				oos.writeObject(200 + "," + nickname + "," + msg);
+				//jtf_msg.setText("");				
+				
+			} catch (Exception e) {
+				System.out.println(e.toString());
 			}
 			
 		}
