@@ -92,7 +92,8 @@ public class LeeClient extends JFrame implements ActionListener{
 		
 		if(obj == jbtn_send) {
 			try {
-				jtf_msg.setText(msg);
+				jta_display.setText(msg);
+				//jtf_msg.setText(msg);
 			} catch (Exception e) {
 			}
 			
