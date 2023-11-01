@@ -97,8 +97,13 @@ public class LeeClient extends JFrame implements ActionListener{
 		
 		if(obj == jtf_msg) {
 			try {
+<<<<<<< HEAD
 				oos.writeObject(200 + "," + nickname + "," + msg);
 				jtf_msg.setText("");
+=======
+				jta_display.setText(msg);
+				//jtf_msg.setText(msg);
+>>>>>>> 51b1694f9b23841d680f656a2b094ae97247fd07
 			} catch (Exception e) {
 				System.out.println(e.toString());
 			}			
