@@ -7,7 +7,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/exlib/gson-2.8.9.jar"/>
-	<classpathentry kind="lib" path="src/exlib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
