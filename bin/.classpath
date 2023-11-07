@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-<<<<<<< HEAD
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="src/com/Over1/Over1.java"/>
-=======
 	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
@@ -13,6 +9,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="src/exlib/gson-2.8.9.jar"/>
 	<classpathentry kind="lib" path="src/exlib/ojdbc6.jar"/>
->>>>>>> 5e80a7d2f7cd34de5d200f783a5456237509e6aa
 	<classpathentry kind="output" path="bin"/>
 </classpath>
